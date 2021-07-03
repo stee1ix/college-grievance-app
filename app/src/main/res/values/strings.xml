@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">College Grievance System</string>
+    <string name="welcome_textbox">Welcome!</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="radio_student">Student</string>
+    <string name="radio_faculty">Faculty</string>
+    <string name="btn_login">Login</string>
 </resources>
