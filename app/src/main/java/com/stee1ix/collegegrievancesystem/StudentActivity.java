@@ -57,7 +57,7 @@ public class StudentActivity extends AppCompatActivity {
 
 
         Map<String, String> complaint = new HashMap<>();
-        complaint.put(subject, subject);
+        complaint.put("subject", subject);
         complaint.put("message", message);
 
         //update db with complaint

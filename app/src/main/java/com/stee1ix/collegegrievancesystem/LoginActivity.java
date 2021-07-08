@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             //updateUI with user
                             Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
-                            intent.putExtra("Username", email);
+                            intent.putExtra("email", email);
 //                            intent.putExtras()
                             startActivity(intent);
                         } else {
