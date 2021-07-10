@@ -16,4 +16,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="This is the message"/>
+    <TextView
+        android:id="@+id/tvReply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This is the message"/>
+    <TextView
+        android:id="@+id/tvStudentId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This is the message"/>
+    <TextView
+        android:id="@+id/tvStudentName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This is the message"/>
 </LinearLayout>

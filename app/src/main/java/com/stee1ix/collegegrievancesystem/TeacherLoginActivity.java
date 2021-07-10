@@ -106,7 +106,7 @@ public class TeacherLoginActivity extends AppCompatActivity {
 
 
                             //updateUI with user
-                            Intent intent = new Intent(TeacherLoginActivity.this, ReplyActivity.class);
+                            Intent intent = new Intent(TeacherLoginActivity.this, TchrListActivity.class);
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -126,8 +126,8 @@ public class TeacherLoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = getTchrEmail();
                 String password = getTchrPassword();
-                createTchrAccount(email, password);
-//                signInTchr(email, password);
+//                createTchrAccount(email, password);
+                signInTchr(email, password);
             }
         });
     }

@@ -81,11 +81,11 @@ public class LoginActivity extends AppCompatActivity {
 
                             documentReference
                                     .set(student).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-                                            Log.d("addUserData", "DocumentSnapshot added with ID: " + documentReference.getId());
-                                        }
-                                    })
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Log.d("addUserData", "DocumentSnapshot added with ID: " + documentReference.getId());
+                                }
+                            })
                                     .addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {

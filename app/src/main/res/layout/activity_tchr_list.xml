@@ -4,26 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StudentHistoryActivity">
-
-    <TextView
-        android:id="@+id/noComplaints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No complaints submitted yet."
-        android:textSize="25sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".TchrListActivity">
 
     <ListView
-        android:id="@+id/lvHistory"
+        android:id="@+id/lvTchr"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

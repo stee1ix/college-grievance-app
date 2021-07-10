@@ -18,20 +18,15 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-
-import static com.stee1ix.collegegrievancesystem.Complaint.getListOfComplaints;
 
 
 public class StudentHistoryActivity extends AppCompatActivity {
 
     ArrayList<Complaint> complaints = new ArrayList<>();
-    //    ArrayList<Complaint> complaints2;
     ListView lvHistory;
 
     Map<String, Object> complaintMap;
@@ -53,30 +48,34 @@ public class StudentHistoryActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
-                            complaintMap = Objects.requireNonNull(task.getResult()).getData();
-                            Log.d("Complaints", String.valueOf(complaintMap));
-                            for (Map.Entry<String, Object> entry : complaintMap.entrySet()) {
-                                Map<String, String> map = (Map<String, String>) entry.getValue();
-                                Complaint complaint = new Complaint(map.get("subject"), map.get("message"));
-                                complaint.setSubject(map.get("subject"));
-                                complaint.setMessage(map.get("message"));
-                                complaints.add(complaint);
+                            DocumentSnapshot documentSnapshot = task.getResult();
+                            if (documentSnapshot.exists()) {
+                                complaintMap = Objects.requireNonNull(task.getResult()).getData();
+                                Log.d("Complaints", String.valueOf(complaintMap));
+                                for (Map.Entry<String, Object> entry : complaintMap.entrySet()) {
+                                    Map<String, String> map = (Map<String, String>) entry.getValue();
+                                    Complaint complaint = new Complaint(map.get("subject"), map.get("message"), map.get("reply"), map.get("studentId"), map.get("name"));
+                                    complaint.setSubject(map.get("subject"));
+                                    complaint.setMessage(map.get("message"));
+                                    complaint.setReply(map.get("reply"));
+                                    complaint.setStudentId(map.get("studentId"));
+                                    complaint.setStudentName(map.get("name"));
+                                    complaints.add(complaint);
+                                }
 
                                 lvHistory = findViewById(R.id.lvHistory);
+                                lvHistory.setVisibility(View.VISIBLE);
                                 ComplaintAdapter complaintAdapter = new ComplaintAdapter();
                                 lvHistory.setAdapter(complaintAdapter);
+                            } else {
+                                TextView noComplaints = findViewById(R.id.noComplaints);
+                                noComplaints.setVisibility(View.VISIBLE);
                             }
                         } else {
                             Log.w("Complaints", "Error getting documents.", task.getException());
                         }
                     }
                 });
-
-        for (int i = 0; i < complaints.size(); i++) {
-            Log.d("Complaints", complaints.get(i).getSubject() + " " + complaints.get(i).getMessage());
-        }
-
-
     }
 
     class ComplaintAdapter extends BaseAdapter {
@@ -102,8 +101,15 @@ public class StudentHistoryActivity extends AppCompatActivity {
 
             TextView tvSubject = itemView.findViewById(R.id.tvSubject);
             TextView tvMessage = itemView.findViewById(R.id.tvMessage);
+            TextView tvReply = itemView.findViewById(R.id.tvReply);
+            TextView tvStudentId = itemView.findViewById(R.id.tvStudentId);
+            TextView tvStudentName = itemView.findViewById(R.id.tvStudentName);
+
             tvSubject.setText(getItem(position).getSubject());
             tvMessage.setText(getItem(position).getMessage());
+            tvReply.setText(getItem(position).getReply());
+            tvStudentId.setText(getItem(position).getStudentId());
+            tvStudentName.setText(getItem(position).getStudentName());
 
             return itemView;
         }

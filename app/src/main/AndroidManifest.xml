@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CollegeGrievanceSystem">
-        <activity android:name=".TeacherLoginActivity"></activity>
+        <activity android:name=".TchrListActivity"></activity>
+        <activity android:name=".TeacherLoginActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ReplyActivity" />
         <activity android:name=".StudentHistoryActivity" />
