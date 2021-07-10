@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CollegeGrievanceSystem">
-        <activity android:name=".StudentHistoryActivity"></activity>
+        <activity android:name=".TeacherLoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ReplyActivity" />
+        <activity android:name=".StudentHistoryActivity" />
         <activity android:name=".StudentActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".TypeChooseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".ReplyActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvCompleteMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dfsgvjsgk sfvkshfvrkhfvggs fwvfskvfskvkgfjasfbjdks fsdf"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/etReply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="200"
+            android:inputType="textMultiLine"/>
+
+        <Button
+            android:id="@+id/btnSubmitReply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SUBMIT REPLY"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+</ScrollView>
