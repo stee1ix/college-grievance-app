@@ -8,43 +8,32 @@
     android:fillViewport="true"
     android:paddingHorizontal="20dp">
 
-    <TextView
-        android:id="@+id/display_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.342"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037" />
-
     <Button
         android:id="@+id/btnViewSubmitted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="View Submitted Complaints"
         android:onClick="viewStudentHistory"
+        android:text="View Submitted Complaints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintVertical_bias="0.90999997" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/log_issue"
-        android:textSize="20sp"
+        android:text="Submit new Issue"
+        android:textSize="30sp"
+        android:fontFamily="@font/nunito_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.204" />
+        app:layout_constraintVertical_bias="0.04000002" />
 
     <!--        <Spinner-->
     <!--            android:id="@+id/spinner_catergories"-->
@@ -74,32 +63,39 @@
     <EditText
         android:id="@+id/etSubject"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="70dp"
+        android:elevation="1dp"
         android:ems="10"
-        android:hint="@string/edit_sub"
+        android:hint="Enter subject here..."
         android:inputType="textPersonName"
         android:maxLength="60"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35000002" />
 
     <EditText
         android:id="@+id/etMessage"
         android:layout_width="match_parent"
         android:layout_height="179dp"
         android:ems="10"
+        android:gravity="start"
+        android:hint="Enter you complaint here..."
         android:inputType="textMultiLine"
         android:maxLength="800"
         android:scrollbars="vertical"
+        android:elevation="1dp"
+        android:padding="10dp"
         android:verticalScrollbarPosition="right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etSubject"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.050000012" />
 
     <Button
         android:id="@+id/btn_submit"
@@ -111,8 +107,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.891" />
+        app:layout_constraintTop_toBottomOf="@+id/etMessage"
+        app:layout_constraintVertical_bias="0.01999998" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

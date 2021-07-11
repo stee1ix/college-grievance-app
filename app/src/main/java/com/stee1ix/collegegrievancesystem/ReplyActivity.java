@@ -34,6 +34,15 @@ public class ReplyActivity extends AppCompatActivity {
         message = getIntent().getStringExtra("message");
         studentId = getIntent().getStringExtra("studentId");
 
+        TextView tvCompleteSub = findViewById(R.id.tvCompleteSub);
+        tvCompleteSub.setText(subject);
+
+        TextView tvCompleteMsg = findViewById(R.id.tvCompleteMsg);
+        tvCompleteMsg.setText(message);
+
+        TextView tvName = findViewById(R.id.tvName);
+        tvName.setText(name);
+
         db = FirebaseFirestore.getInstance();
     }
 

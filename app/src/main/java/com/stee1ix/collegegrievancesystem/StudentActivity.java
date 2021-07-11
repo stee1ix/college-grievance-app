@@ -43,11 +43,6 @@ public class StudentActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
-
-        //TextView to display the username
-        TextView name = findViewById(R.id.display_name);
-        String email = getIntent().getStringExtra("email");
-        name.setText("Welcome, " + email);
     }
 
     public void submitComplaint(View view) {
@@ -61,7 +56,7 @@ public class StudentActivity extends AppCompatActivity {
         Map<String, String> complaint = new HashMap<>();
         complaint.put("subject", subject);
         complaint.put("message", message);
-        complaint.put("reply", "");
+        complaint.put("reply", "No reply yet");
         complaint.put("studentId", user.getUid());
 
         Map<String, Map<String,String>> complaintMap = new HashMap<>();
