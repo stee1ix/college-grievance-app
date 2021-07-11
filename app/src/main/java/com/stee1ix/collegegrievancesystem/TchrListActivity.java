@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -70,9 +71,14 @@ public class TchrListActivity extends AppCompatActivity {
                                 }
                             }
 
+                            ProgressBar progressBar = findViewById(R.id.progressBar);
+                            progressBar.setVisibility(View.GONE);
+
                             lvTchr = findViewById(R.id.lvTchr);
+                            lvTchr.setVisibility(View.VISIBLE);
                             TeacherAdapter teacherAdapter = new TeacherAdapter();
                             lvTchr.setAdapter(teacherAdapter);
+
 
                             lvTchr.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
@@ -80,7 +86,7 @@ public class TchrListActivity extends AppCompatActivity {
                                     TextView reply = view.findViewById(R.id.tvReply);
                                     String replyString = reply.getText().toString();
 
-                                    if (!replyString.isEmpty()) {
+                                    if (!replyString.equalsIgnoreCase("No reply yet")) {
                                         Toast.makeText(TchrListActivity.this, "Already Replied", Toast.LENGTH_SHORT).show();
                                     } else {
                                         TextView name = view.findViewById(R.id.tvStudentName);

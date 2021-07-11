@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -62,6 +63,9 @@ public class StudentHistoryActivity extends AppCompatActivity {
                                     complaint.setStudentName(map.get("name"));
                                     complaints.add(complaint);
                                 }
+
+                                ProgressBar progressBar = findViewById(R.id.progressBar);
+                                progressBar.setVisibility(View.GONE);
 
                                 lvHistory = findViewById(R.id.lvHistory);
                                 lvHistory.setVisibility(View.VISIBLE);

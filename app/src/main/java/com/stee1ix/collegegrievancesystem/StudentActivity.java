@@ -58,8 +58,9 @@ public class StudentActivity extends AppCompatActivity {
         complaint.put("message", message);
         complaint.put("reply", "No reply yet");
         complaint.put("studentId", user.getUid());
+        complaint.put("name", user.getDisplayName());
 
-        Map<String, Map<String,String>> complaintMap = new HashMap<>();
+        Map<String, Map<String, String>> complaintMap = new HashMap<>();
         complaintMap.put(complaint.get("subject"), complaint);
 
         //update db with complaint
@@ -115,8 +116,6 @@ public class StudentActivity extends AppCompatActivity {
     }
 
     public void viewStudentHistory(View view) {
-
-
         Intent intent = new Intent(this, StudentHistoryActivity.class);
         startActivity(intent);
     }

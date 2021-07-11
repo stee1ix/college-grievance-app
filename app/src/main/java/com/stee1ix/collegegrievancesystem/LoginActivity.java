@@ -31,7 +31,6 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private FirebaseFirestore db;
 
 
     @Override
@@ -40,16 +39,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-
-        //update UI with currentUser
     }
 
     private String getUserName() {
@@ -64,49 +53,6 @@ public class LoginActivity extends AppCompatActivity {
         return passwd;
     }
 
-    private void createAccount(String email, String password) {
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Log.d("SignUp", "createUserWithEmail:success");
-
-                            //update db with user
-                            Map<String, String> student = new HashMap<>();
-                            student.put("email", email);
-//                            student.put("name", name)    put a name editText and import here
-
-                            DocumentReference documentReference = db.collection("students").document(mAuth.getUid());
-
-                            documentReference
-                                    .set(student).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    Log.d("addUserData", "DocumentSnapshot added with ID: " + documentReference.getId());
-                                }
-                            })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Log.w("addUserData", "Error adding document", e);
-                                        }
-                                    });
-                            //update UI with user
-                            Intent intent = new Intent(LoginActivity.this, StudentActivity.class);
-                            intent.putExtra("email", email);
-//                            intent.putExtras()
-                            startActivity(intent);
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("SignUp", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                            //update UI with null
-                        }
-                    }
-                });
-    }
 
     private void signIn(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
@@ -142,9 +88,13 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String userName = getUserName();
                 String password = getPassword();
-//                createAccount(userName, password);
-                signIn(userName,password);
+                signIn(userName, password);
             }
         });
+    }
+
+    public void Register(View view) {
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(intent);
     }
 }
